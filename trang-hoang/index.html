@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Business Card</title>
+    <style>
+        /* ===== COLOR SCHEME - ADJUST THESE VALUES ===== */
+        :root {
+            --primary-color: #2c3e50;      /* Dark blue-gray */
+            --secondary-color: #3498db;    /* Bright blue */
+            --accent-color: #e74c3c;       /* Red accent */
+            --background-color: #ecf0f1;   /* Light gray */
+            --card-background: #ffffff;    /* White */
+            --text-primary: #2c3e50;       /* Dark text */
+            --text-secondary: #7f8c8d;     /* Gray text */
+        }
+        /* ============================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: var(--card-background);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 40px 30px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .portrait {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--card-background);
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .name {
+            color: var(--card-background);
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .title {
+            color: var(--card-background);
+            font-size: 16px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            color: var(--card-background);
+            font-weight: bold;
+        }
+
+        .info-content {
+            flex: 1;
+        }
+
+        .info-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+
+        .info-value {
+            font-size: 15px;
+            color: var(--text-primary);
+            word-break: break-word;
+        }
+
+        .info-value a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .info-value a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid var(--background-color);
+        }
+
+        .social-link {
+            height: 45px;
+            border-radius: 5em;
+            background-color: var(--background-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            transition: all 0.3s ease;
+            padding: 1em;
+        }
+
+        .social-link:hover {
+            background-color: var(--secondary-color);
+            color: var(--card-background);
+            transform: translateY(-3px);
+        }
+
+        .description-text {
+            margin-bottom: 2em;
+            text-align: justify;
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                border-radius: 0;
+            }
+
+            .portrait {
+                width: 120px;
+                height: 120px;
+            }
+
+            .name {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <img src="https://www.mdc-berlin.de/system/files/styles/mdc_person_teaser_mdc_wide_2x/private/w21_mdc_persdb/photos/09ea221d3db11df1f369094ffb4bda7c-1767803884.jpeg?h=05c5e97b&itok=Q7-b18PE" alt="Portrait" class="portrait">
+            <h1 class="name">Yen Trang Hoang</h1>
+            <p class="title">PhD Candidate | Junker Lab</p>
+        </div>
+        
+        <div class="card-body">
+             <p class="description-text">As a PhD candidate I aim to resolve how spatial context and clonal dynamics contribute to neuroblastoma transcriptional heterogeneity using a zebrafish tumor model. This work uniquely combines spatial and lineage-resolved data, providing a robust framework to study the regulation of cell state plasticity, identify potential therapeutic vulnerabilities, reveal principles of tumor evolution, and extend its application beyond neuroblastoma.</p>
+            <div class="info-item">
+                <div class="icon">📧</div>
+                <div class="info-content">
+                    <div class="info-label">Email</div>
+                    <div class="info-value">
+                        <a href="mailto:yentrang.hoang@mdc-berlin.de">yentrang.hoang@mdc-berlin.de</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="icon">📍</div>
+                <div class="info-content">
+                    <div class="info-label">Adresse</div>
+                    <div class="info-value">Hannoversche Straße 28, 10115 Berlin</div>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="http://www.linkedin.com/in/yen-trang-hoang-1141262aa" class="social-link" title="LinkedIn">Contact me on LinkedIn</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
