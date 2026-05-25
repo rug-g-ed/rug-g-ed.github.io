@@ -1,0 +1,3 @@
+always[1]:
+  - "reads from environment variables"[1]: reads image source from IMAGE_SOURCE environment variable
+never: null
